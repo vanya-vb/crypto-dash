@@ -2,8 +2,7 @@ import CoinCard from "../components/CoinCard";
 import LimitSelector from "../components/LimitSelector";
 import FilterInput from "../components/FilterInput";
 import SortSelector from "../components/SortSelector";
-
-import { ClipLoader } from "react-spinners";
+import Spinner from "../components/Spinner";
 
 export default function HomePage({ coins, filter, setFilter, limit, setLimit, sortBy, setSortBy, loading, error }) {
 
@@ -32,16 +31,7 @@ export default function HomePage({ coins, filter, setFilter, limit, setLimit, so
     return (
         <div>
             <h1>🚀 Crypto Dash</h1>
-            {
-                loading && <ClipLoader
-                    color='grey'
-                    loading={loading}
-                    cssOverride={override}
-                    size={120}
-                    aria-label="Loading Spinner"
-                    data-testid="loader"
-                />
-            }
+            {loading && <Spinner color="white"/>}
 
             {error && <div className="error">{error}</div>}
 
